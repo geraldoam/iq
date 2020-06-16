@@ -1,8 +1,9 @@
 from iqoptionapi.stable_api import IQ_Option
-import logging
-import time
-import os
+import time, json
+from datetime import datetime
+from dateutil import tz # pip install python-dateutil
 import sys
+import fileinput
 
 # Error Password 
 error_password="""{"code":"invalid_credentials","message":"You entered the wrong credentials. Please check that the login/password is correct."}"""
@@ -76,6 +77,19 @@ def apiLogin(I_want_money, while_run_time, check, reason):
 			print("Erro! Senha inválida.")
 
 
+def carregar_sinais():
+	arquivo = open('sinais.txt', encoding='UTF-8')
+	lista = arquivo.read()
+	arquivo.close
+
+	lista = lista.split('\n')
+
+	for index,a in enumerate(lista):
+		if not a.rstrip():
+			del lista[index]
+
+	return lista
+
 
 # Chama as Funções
 
@@ -83,3 +97,14 @@ bannerProject()
 email, password = consultInformation()
 I_want_money, while_run_time, check, reason = apiConnect(email, password)
 apiLogin(I_want_money, while_run_time, check, reason)
+
+print(json.dumps(carregar_sinais(), indent=1))
+
+lista = carregar_sinais()
+
+for sinal in lista:
+	dados = sinal.split(',')
+	print(dados[0])
+	print(dados[1])
+	print(dados[2])
+	input()
