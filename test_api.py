@@ -14,29 +14,27 @@ def bannerProject():
 	print("""
 
 
-  _                     _   _             
- (_)                   | | (_)            
-  _  __ _    ___  _ __ | |_ _  ___  _ __  
- | |/ _` |  / _ \| '_ \| __| |/ _ \| '_ \ 
- | | (_| | | (_) | |_) | |_| | (_) | | | |
- |_|\__, |  \___/| .__/ \__|_|\___/|_| |_|
-       | |       | |                      
-       |_|       |_|                      
+.______        ______   .______     ______          __         
+|   _  \      /  __  \  |   _  \   /  __  \        |  |    _   
+|  |_)  |    |  |  |  | |  |_)  | |  |  |  |       |  |  _| |_ 
+|      /     |  |  |  | |   _  <  |  |  |  |       |  | |_   _|
+|  |\  \----.|  `--'  | |  |_)  | |  `--'  |       |  |   |_|  
+| _| `._____| \______/  |______/   \______/        |__|        
+                                                               
 
-                                                        
-[ Bem vindo a sua consulta com o Robô IQ Option ]
+                                              
 
 """)
 
 
 def consultInformation():
-	print("""> Olá, seja bem vindo ao protótipo de teste do BOT.
-	> Por favor, preencha os dados. \n""")
+	print("""[] Seja bem vindo ao seu robô I+.
+[] Por favor, preencha os dados abaixo. \n""")
 
-	print("\n[LOGIN] Seu email:")
+	print("\n[ LOGIN ] Seu email:")
 	email = input()
 
-	print("\n[LOGIN] Sua senha:")
+	print("\n[ LOGIN ] Sua senha:")
 	password = input()
 
 	return email, password
@@ -52,7 +50,7 @@ def apiConnect(email, password):
 
 def apiLogin(I_want_money, while_run_time, check, reason):
 	if check:
-		print("\n\n\n[CONECTADO] Bem vindo! Robô iniciado.")
+		print("\n\n[ CONECTADO ] Bem vindo! Robô iniciado.")
 	while True: 
 		if I_want_money.check_connect()==False:#detect the websocket is close
 			print("Tentando reconectar...")
@@ -60,9 +58,9 @@ def apiLogin(I_want_money, while_run_time, check, reason):
 		if check:
 			# Parâmetros pós conectado
 			totalDinheiro = I_want_money.get_balance()
-			print("""\n\n[PAINEL DE CONTROLE]""")
-			print("\n[SALDO] " + str(totalDinheiro))
-			print("[MOEDA] " + str(I_want_money.get_currency()))
+			print("""\n\n[ PAINEL DE CONTROLE ]""")
+			print("[ SALDO ] " + str(totalDinheiro))
+			print("[ MOEDA ] " + str(I_want_money.get_currency()))
 			time.sleep(1000)
 		else:
 			if reason==error_password:
