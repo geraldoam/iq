@@ -1,9 +1,5 @@
-Instalação e Atualização
+<h2>Bot IQOption</h2>
 
-Para Python 3
+<hr>
 
-pip3 install -U git+git://github.com/Lu-Yi-Hsun/iqoptionapi.git
-
-Para Python 2
-
-pip2 install -U git+git://github.com/Lu-Yi-Hsun/iqoptionapi.git
+<p>Um pequeno bot, interativo via CLI, usando API (não oficial) da IQOption.</p>
